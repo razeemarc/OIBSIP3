@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="center">
+  
+  <h1>Temperature Calculator</h1>
+  <form>
+    <input type="number" id="temp-input" >
+    
+    <input type="radio" name="unit" value="celsius" checked>Celsius
+    
+    <input type="radio" name="unit" value="fahrenheit">Fahrenheit
+    <br><br>
+    <button type="button" onclick="calculate()">CONVERT</button>
+    
+  </form>
+  <br>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      var tempInput = document.getElementById("temp-input").value;
+      var unit = document.querySelector('input[name="unit"]:checked').value;
+      var result = document.getElementById("result");
+
+      if (unit === "celsius") {
+        result.innerHTML = Math.round((tempInput * 9/5) + 32) + "°F";
+      } else {
+        result.innerHTML = Math.round((tempInput - 32) * 5/9 )+ "°C";
+      }
+    }
+  </script>
+  </div>
+</body>
+</html>
